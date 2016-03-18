@@ -19,6 +19,7 @@ public class Main {
 
             System.out.println("Valid results:");
 
+
             for (Number number : numberExecutor.getValidResults()) {
                 System.out.println(number);
             }

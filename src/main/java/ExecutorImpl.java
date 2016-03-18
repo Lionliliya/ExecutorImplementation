@@ -54,8 +54,8 @@ public class ExecutorImpl<Number> implements Executor {
     }
 
     @Override
-    public List<? extends Number> getInvalidResults() throws Exception {
-        List<? extends Number> list;
+    public List<Number> getInvalidResults() throws Exception {
+        List<Number> list;
         if (executeCounter == 0) {
             throw new Exception("ERROR!!!Execute method was not run!");
         } else {
@@ -68,8 +68,8 @@ public class ExecutorImpl<Number> implements Executor {
     }
 
     @Override
-    public List<? extends Number> getValidResults() throws Exception {
-        List<? extends Number> list;
+    public List<Number> getValidResults() throws Exception {
+        List<Number> list;
         if (executeCounter == 0) {
             throw new Exception("ERROR!!!Execute method was not run!");
         } else {
