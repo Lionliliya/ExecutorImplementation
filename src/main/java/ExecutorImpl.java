@@ -3,8 +3,8 @@ import java.util.List;
 
 public class ExecutorImpl<Number> implements Executor {
 
-    private List<Task<? extends Number>> validList;
-    private List<Task<? extends Number>> invalidList;
+    private List<Task<Number>> validList;
+    private List<Task<Number>> invalidList;
     private long executeCounter;
     private boolean executeIsRun;
 
@@ -20,7 +20,7 @@ public class ExecutorImpl<Number> implements Executor {
         if (executeIsRun) {
             throw new Exception("ERROR!!!Executor is run");
         } else {
-           NumberValidator numberValidator = new NumberValidator();
+           Validator numberValidator = new NumberValidator();
            addTask(task, numberValidator);
         }
 
@@ -81,19 +81,19 @@ public class ExecutorImpl<Number> implements Executor {
         return list;
     }
 
-    public List<Task<? extends Number>> getValidList() {
+    public List<Task<Number>> getValidList() {
         return validList;
     }
 
-    public void setValidList(List<Task<? extends Number>> validList) {
+    public void setValidList(List<Task<Number>> validList) {
         this.validList = validList;
     }
 
-    public List<Task<? extends Number>> getInvalidList() {
+    public List<Task<Number>> getInvalidList() {
         return invalidList;
     }
 
-    public void setInvalidList(List<Task<? extends Number>> invalidList) {
+    public void setInvalidList(List<Task<Number>> invalidList) {
         this.invalidList = invalidList;
     }
 

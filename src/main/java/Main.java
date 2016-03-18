@@ -9,7 +9,7 @@ public class Main {
         List<Task<Integer>> intTasks = Arrays.asList(intTask1, intTask2);
 
         try {
-            Executor<Number> numberExecutor = new ExecutorImpl<>();
+            Executor<Number> numberExecutor = new ExecutorImpl<Number>();
             for (Task<Integer> intTask : intTasks) {
                 numberExecutor.addTask(intTask);
             }
@@ -29,7 +29,7 @@ public class Main {
                 System.out.println(number);
             }
         } catch (Exception ex) {
-            System.out.println(ex);
+            ex.printStackTrace();
         }
 
 
