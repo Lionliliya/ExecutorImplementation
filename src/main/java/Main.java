@@ -7,14 +7,14 @@ public class Main {
         Task<Integer> intTask2 = new IntTask(350);
 
         List<Task<Integer>> intTasks = Arrays.asList(intTask1, intTask2);
-
+        Validator<Number> validator = new NumberValidator();
         try {
-            Executor<Number> numberExecutor = new ExecutorImpl<Number>();
+            Executor<Number> numberExecutor = new ExecutorImpl<>();
             for (Task<Integer> intTask : intTasks) {
                 numberExecutor.addTask(intTask);
             }
 
-            numberExecutor.addTask(new LongTask(10L), new NumberValidator());
+            numberExecutor.addTask(new LongTask(10L), validator);
             numberExecutor.execute();
 
             System.out.println("Valid results:");

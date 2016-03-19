@@ -1,7 +1,7 @@
 import java.util.List;
 
 
-public interface Executor <T> {
+public interface Executor<T> {
 
     void addTask(Task<? extends T> task) throws Exception;
 

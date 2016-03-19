@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExecutorImpl<Number> implements Executor {
+public class ExecutorImpl<Number> implements Executor<Number> {
 
-    private List<Task<Number>> validList;
-    private List<Task<Number>> invalidList;
+    private List<Task<? extends Number>> validList;
+    private List<Task<? extends Number>> invalidList;
     private long executeCounter;
     private boolean executeIsRun;
 
@@ -20,18 +20,18 @@ public class ExecutorImpl<Number> implements Executor {
         if (executeIsRun) {
             throw new Exception("ERROR!!!Executor is run");
         } else {
-           Validator numberValidator = new NumberValidator();
-           addTask(task, numberValidator);
+            Validator validator = new NumberValidator();
+            addTask(task, validator);
         }
 
     }
 
     @Override
-    public void addTask(Task task, Validator validator) throws Exception {
+    public void addTask(Task<? extends Number> task, Validator<? super Number> validator) throws Exception {
         if (executeIsRun) {
             throw new Exception("ERROR!!!Executor is run");
         } else {
-            if (validator.isValid(task)) {
+            if (validator.isValid(task.getResult())) {
                 validList.add(task);
             } else {
                 invalidList.add(task);
@@ -44,10 +44,10 @@ public class ExecutorImpl<Number> implements Executor {
     public void execute() {
         executeIsRun = true;
         executeCounter++;
-        for (int i = 0; i < validList.size() ; i++) {
+        for (int i = 0; i < validList.size(); i++) {
             validList.get(i).execute();
         }
-        for (int i = 0; i < invalidList.size() ; i++) {
+        for (int i = 0; i < invalidList.size(); i++) {
             invalidList.get(i).execute();
         }
         executeIsRun = false;
@@ -60,7 +60,7 @@ public class ExecutorImpl<Number> implements Executor {
             throw new Exception("ERROR!!!Execute method was not run!");
         } else {
             list = new ArrayList<>();
-            for (int i = 0; i < invalidList.size() ; i++) {
+            for (int i = 0; i < invalidList.size(); i++) {
                 list.add(invalidList.get(i).getResult());
             }
         }
@@ -74,26 +74,26 @@ public class ExecutorImpl<Number> implements Executor {
             throw new Exception("ERROR!!!Execute method was not run!");
         } else {
             list = new ArrayList<>();
-            for (int i = 0; i < validList.size() ; i++) {
+            for (int i = 0; i < validList.size(); i++) {
                 list.add(validList.get(i).getResult());
             }
         }
         return list;
     }
 
-    public List<Task<Number>> getValidList() {
+    public List<Task<? extends Number>> getValidList() {
         return validList;
     }
 
-    public void setValidList(List<Task<Number>> validList) {
+    public void setValidList(List<Task<? extends Number>> validList) {
         this.validList = validList;
     }
 
-    public List<Task<Number>> getInvalidList() {
+    public List<Task<? extends Number>> getInvalidList() {
         return invalidList;
     }
 
-    public void setInvalidList(List<Task<Number>> invalidList) {
+    public void setInvalidList(List<Task<? extends Number>> invalidList) {
         this.invalidList = invalidList;
     }
 
