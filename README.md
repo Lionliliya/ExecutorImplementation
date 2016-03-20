@@ -15,9 +15,9 @@ There are three generics interfaces.
 
 public interface Executor<T> {
 
-  /***Add a task for execution. The result of Task will be 
+  /****Add a task for execution. The result of Task will be 
   available via the getValidResults () method. Throws 
-  Exeption if execute () method has been called***/
+  Exeption if execute () method has been called****/
   
   
   void addTask(Task<? extends T> task) throws Exception; 
