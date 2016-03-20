@@ -1,17 +1,24 @@
 #ExecutorImplementation
 
-There are three generics interfaces. 
+There are three generics interfaces.
+
 1 Rewrite Task interface so that it was typed by the result (value returned by getResult() method);
+
 2 Rewrite the Validator interface so that it was typed by the accepted value  - method isValid (Object result);
+
 3 Overwrite the Executor interface so that it was typed in accordance with a types of Task and Validator interfaces;
+
 4 Impelements Executor interface
+
 5 Write tests.
+
 
 public interface Executor<T> {
 
-  /**Add a task for execution. The result of Task will be 
+  /*Add a task for execution. The result of Task will be 
   available via the getValidResults () method. Throws 
-  Exeption if execute () method has been called**/
+  Exeption if execute () method has been called*/
+  
   
   void addTask(Task<? extends T> task) throws Exception; 
 
