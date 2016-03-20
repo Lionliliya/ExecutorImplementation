@@ -19,7 +19,7 @@ There are three generics interfaces.
   available via the getValidResults () method. Throws 
   Exeption if execute () method has been called/
   
-  **void addTask(Task<? extends T> task) throws Exception; **
+  **void addTask(Task<? extends T> task) throws Exception;**
 
   /Add a task for execution, and the validator of result. 
   The result will be stored to ValidResults if validator.isValid 
@@ -61,6 +61,7 @@ There are three generics interfaces.
 **public interface Validator<T> {**
 
   /Validates the passed value/
+  
   **boolean isValid(T result);**
 
 **}**
