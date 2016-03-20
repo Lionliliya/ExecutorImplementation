@@ -18,6 +18,7 @@ There are three generics interfaces.
   /Add a task for execution. The result of Task will be 
   available via the getValidResults () method. Throws 
   Exeption if execute () method has been called/
+  
   **void addTask(Task<? extends T> task) throws Exception; **
 
   /Add a task for execution, and the validator of result. 
@@ -26,32 +27,38 @@ There are three generics interfaces.
   /The result of Task will be stored to InvalidResults if 
   validator.isValid returns false for this result/
   /Throws Exeption if execute () method has been called/
+  
   **void addTask(Task<? extends T> task, Validator<? super T> validator) throws Exception;**
   
   /Execute all added Tasks/
+  
   **void execute();**
   
   /Get valid results. Throws Exeption if the execute () 
   method was not called/
+  
   **List<T> getValidResults() throws Exception;**
   
   /Get invalid results. Throws Exeption if the execute () 
   method was not called/
+  
   **List<T> getInvalidResults() throws Exception;**
   
-}
+**}**
 
-public interface Task<T> {
+**public interface Task<T> {**
   
-  /**Method launches the Task for execution**/
-  void execute();
+  /Method launches the Task for execution/
   
-  /**Returns the result of the execution**/
-  T getResult();
-}
+  **void execute();**
+  
+  /Returns the result of the execution/
+  
+  **T getResult();**
+**}**
 
-public interface Validator<T> {
+**public interface Validator<T> {**
 
-  /**Validates the passed value**/
-  boolean isValid(T result);
-}
+  /Validates the passed value/
+  **boolean isValid(T result);**
+**}**
