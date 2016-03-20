@@ -66,3 +66,7 @@ There are three generics interfaces.
 
 **}**
 
+ExecutorImpl is certain implementation of  Executor;
+LongTask is certain implementation of Task typed by Long;
+NumberValidator is  some implementation of Validator typed by Number;
+
