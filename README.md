@@ -62,3 +62,4 @@ There are three generics interfaces.
   /Validates the passed value/
   **boolean isValid(T result);**
 **}**
+
