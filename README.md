@@ -44,7 +44,7 @@ There are three generics interfaces.
   
   **List<T> getInvalidResults() throws Exception;**
   
-**}**
+  **}**
 
 **public interface Task<T> {**
   
@@ -55,11 +55,13 @@ There are three generics interfaces.
   /Returns the result of the execution/
   
   **T getResult();**
+
 **}**
 
 **public interface Validator<T> {**
 
   /Validates the passed value/
   **boolean isValid(T result);**
+
 **}**
 
