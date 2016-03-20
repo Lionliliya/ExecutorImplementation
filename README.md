@@ -15,33 +15,35 @@ There are three generics interfaces.
 
 public interface Executor<T> {
 
-  /****Add a task for execution. The result of Task will be 
+  /*****Add a task for execution. The result of Task will be 
   available via the getValidResults () method. Throws 
-  Exeption if execute () method has been called****/
-  
+  Exeption if execute () method has been called*****/
   
   void addTask(Task<? extends T> task) throws Exception; 
 
-  /**Add a task for execution, and the validator of result. 
+  /*****Add a task for execution, and the validator of result. 
   The result will be stored to ValidResults if validator.isValid 
-  returns true for this result**/
-  /**The result of Task will be stored to InvalidResults if 
-  validator.isValid returns false for this result**/
-  /**Throws Exeption if execute () method has been called**/
+  returns true for this result*****/
+  /*****The result of Task will be stored to InvalidResults if 
+  validator.isValid returns false for this result*****/
+  /*****Throws Exeption if execute () method has been called*****/
   
   void addTask(Task<? extends T> task, Validator<? super T> validator) throws Exception;
   
-  /**Execute all added Tasks**/
+  /*****Execute all added Tasks*****/
+  
   void execute();
   
-  /**Get valid results. Throws Exeption if the execute () 
-  method was not called**/
+  /*****Get valid results. Throws Exeption if the execute () 
+  method was not called*****/
+  
   List<T> getValidResults() throws Exception;
-
-  /**Get invalid results. Throws Exeption if the execute () 
-  method was not called**/
+  
+  /*****Get invalid results. Throws Exeption if the execute () 
+  method was not called*****/
+  
   List<T> getInvalidResults() throws Exception;
-
+  
 }
 
 public interface Task<T> {
